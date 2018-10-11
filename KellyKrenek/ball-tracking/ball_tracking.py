@@ -14,7 +14,7 @@ import time
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-v", "--video",
-	help="C:\Users\kelly\Documents\AUV\REAF2019\KellyKrenek\ball-tracking")
+	help="C:\Users\kelly\Documents\AUV\REAF2019\KellyKrenek\ball-tracking\ball_tracking_example.mp4")
 ap.add_argument("-b", "--buffer", type=int, default=64,
 	help="max buffer size")
 args = vars(ap.parse_args())
