@@ -10,7 +10,7 @@ void setup() {
     pinMode(green, OUTPUT);
 
     Serial.begin(9600);
-    Serial.println("r = red, y = yellow, g = green");
+    Serial.println("r = red, y = yellow, g = green, o = off");
 }
 
 void loop() {
@@ -20,12 +20,18 @@ void loop() {
       case 'r':
         redLight();
         Serial.println("red");
+        break;
       case 'y':
         yellowLight();
         Serial.println("yellow");
+        break;
       case 'g':
         greenLight();
         Serial.println("green");
+        break;
+      case 'o':
+        lightsOff();
+        break;
     }
 }
 
@@ -47,6 +53,12 @@ void yellowLight() {
     //turn yellow light on and others off
     digitalWrite(green, LOW);
     digitalWrite(yellow, HIGH);
+    digitalWrite(red, LOW);
+}
+void lightsOff() {
+    //turn yellow light on and others off
+    digitalWrite(green, LOW);
+    digitalWrite(yellow, LOW);
     digitalWrite(red, LOW);
 }
 
