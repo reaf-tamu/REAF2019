@@ -1,0 +1,8 @@
+We’re going to practice using this checklist, working with Github, and writing some code with a quick and hopefully fun activity!
+
+Get into pairs and choose a small program to write in Python
+	This can be from the list on the next slide or something you come up with on your own
+Run through the checklist and write your code in the “Edit Code” step
+	Remember - the goal is to make it as easy as possible for someone else to understand how your code works quickly
+After you finish this (it should take no longer than 45 minutes), pair up with another group and critique their documentation and style
+	Look for things like clean formatting, clear comments, and detailed documentation
