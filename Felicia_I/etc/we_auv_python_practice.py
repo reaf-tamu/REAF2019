@@ -12,6 +12,7 @@ Rock Paper Scissors
 """
 
 def RPS():
+    '''To play Rock, Paper, Scissors, enter R, P or S when prompted. The COM will also choose one. Rock beats Scissors, Paper beats Rock, and Scissors beats Paper. Have fun!'''
     import random as rand
     state = 1
     while state is 1: # keeps game running
