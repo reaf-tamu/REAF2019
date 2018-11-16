@@ -1,3 +1,6 @@
+#Today I learned and practiced writing a code in Python. 
+#In addition to this I learned how to push and pull from Github
+
 from random import randint
 
 #prompts player to pick one of the options
@@ -18,6 +21,7 @@ else:
 
 print(computer)
 
+#tells the results of the rock, paper, scissors game
 if player == computer:
 	print('DRAW!')
 
