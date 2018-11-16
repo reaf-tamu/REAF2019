@@ -1,3 +1,5 @@
+#this program simulates a six-sided dice
+
 from random import randint
 
 print('\nRolling the dice!')
