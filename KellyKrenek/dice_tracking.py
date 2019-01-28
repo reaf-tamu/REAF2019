@@ -49,6 +49,7 @@ while True:
     #edge = cv2.Canny(frame,200,100)
     #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     resized = imutils.resize(frame, width=500)
+    #blurs the image to create smoother lines
     frame2 = cv2.GaussianBlur(resized, (5, 5), 0)
     
     for (lower, upper) in boundaries:
