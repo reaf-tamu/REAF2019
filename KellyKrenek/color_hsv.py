@@ -7,25 +7,30 @@
 # or
 # (python) range-detector --filter HSV --webcam
 
+
+#necessary imports
 import cv2
 import argparse
 from operator import xor
 
-
+#necessary function that does nothing (needed for trackbar to work)
 def callback(value):
     pass
 
 
 def setup_trackbars(range_filter):
+    #specifically create window for image
     cv2.namedWindow("Trackbars", 0)
 
     for i in ["MIN", "MAX"]:
         v = 0 if i == "MIN" else 255
 
+        #maybe displays trackbars for each of the main three colors? (r,b,g)?
+        #i believe users can modify them?
         for j in range_filter:
             cv2.createTrackbar("%s_%s" % (j, i), "Trackbars", v, 255, callback)
 
-
+#parse command line for arguments
 def get_arguments():
     ap = argparse.ArgumentParser()
     ap.add_argument('-f', '--filter', required=True,
@@ -47,7 +52,7 @@ def get_arguments():
 
     return args
 
-
+#gets values that users can change
 def get_trackbar_values(range_filter):
     values = []
 
@@ -64,18 +69,23 @@ def main():
 
     range_filter = args['filter'].upper()
 
+    #pull from file if specified
     if args['image']:
         image = cv2.imread(args['image'])
 
         if range_filter == 'RGB':
             frame_to_thresh = image.copy()
+        #if using hsv, convert
         else:
             frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    #otherwise pull from webcam
     else:
         camera = cv2.VideoCapture(0)
 
     setup_trackbars(range_filter)
 
+    
+    #loop over frames
     while True:
         if args['webcam']:
             ret, image = camera.read()
@@ -91,7 +101,8 @@ def main():
         v1_min, v2_min, v3_min, v1_max, v2_max, v3_max = get_trackbar_values(range_filter)
 
         thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))
-
+        
+        #imshow displays the image
         if args['preview']:
             preview = cv2.bitwise_and(image, image, mask=thresh)
             cv2.imshow("Preview", preview)
