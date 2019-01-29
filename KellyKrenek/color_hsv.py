@@ -71,8 +71,10 @@ def main():
 
     #pull from file if specified
     if args['image']:
+        #imread loads the image
         image = cv2.imread(args['image'])
 
+        # if filter is red, green, blue color model
         if range_filter == 'RGB':
             frame_to_thresh = image.copy()
         #if using hsv, convert
@@ -80,6 +82,7 @@ def main():
             frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     #otherwise pull from webcam
     else:
+        #Create object to capture image (the zero is the number camera you want to capture)
         camera = cv2.VideoCapture(0)
 
     setup_trackbars(range_filter)
@@ -110,9 +113,10 @@ def main():
             cv2.imshow("Original", image)
             cv2.imshow("Thresh", thresh)
 
+        #displays image for however many miliseconds (im not sure why it's 1 instead of like 25?)
         if cv2.waitKey(1) & 0xFF is ord('q'):
             break
 
-
+#call function to run code
 if __name__ == '__main__':
     main()
