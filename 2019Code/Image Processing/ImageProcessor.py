@@ -21,8 +21,8 @@ while True:
 
     output = cv2.bitwise_and(frame, hsv, mask=mask)
     cv2.imshow("output", output)
-    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
-        break
+    #if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+    #    break
 
 cv2.destroyAllWindows()
 video.release()
