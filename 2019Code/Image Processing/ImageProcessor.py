@@ -21,9 +21,11 @@ while True:
     #upper = [255, 255, 255]  
     
     #sees red only
-    lower = [150,150,0]
-    upper = [180,255,255]
+    #lower = [10,150,0]
+    #upper = [180,255,255]
     
+    lower = [100,150,0]
+    upper = [140,255,255]
     
     lower = np.array(lower, dtype="uint8")
     upper = np.array(upper, dtype="uint8")
