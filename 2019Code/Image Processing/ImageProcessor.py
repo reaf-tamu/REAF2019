@@ -12,19 +12,22 @@ while True:
         break
 
     blur = cv2.GaussianBlur(frame, (21, 21), 0)
-    hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
+    #hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
+    
+    #not using hsv
+    hsv = blur
     
     #finds orange/yellow but not red
     #lower = [18, 50, 50]
     #upper = [35, 255, 255]
     
     #can see most of the image
-    #lower = [0, 0, 0]
-    #upper = [255, 255, 255]  
+    lower = [0, 0, 0]
+    upper = [255, 255, 255]  
     
     #sees red only
-    lower = [10,150,0]
-    upper = [180,255,255]
+    #lower = [10,150,0]
+    #upper = [180,255,255]
     
     #dark blue
     #lower = [100,150,0]
