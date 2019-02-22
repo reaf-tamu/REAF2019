@@ -6,6 +6,8 @@ video = cv2.VideoCapture(video_file)
 
 while True:
     (grabbed, frame) = video.read()
+    #resize image
+    #res = cv2.resize(frame,(2000,900))
     if not grabbed:
         break
 
@@ -21,11 +23,13 @@ while True:
     #upper = [255, 255, 255]  
     
     #sees red only
-    #lower = [10,150,0]
-    #upper = [180,255,255]
+    lower = [10,150,0]
+    upper = [180,255,255]
     
-    lower = [100,150,0]
-    upper = [140,255,255]
+    #dark blue
+    #lower = [100,150,0]
+    #upper = [140,255,255]
+    
     
     lower = np.array(lower, dtype="uint8")
     upper = np.array(upper, dtype="uint8")
