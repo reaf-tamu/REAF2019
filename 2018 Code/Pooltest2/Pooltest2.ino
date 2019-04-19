@@ -12,7 +12,7 @@
 //IF THE AUV NEEDS TO BE STOPPED IMMEDIATLY, RUN THE STOP SKETCH IN THE STOP FOLDER OR HIT THE KILL SWITCH
 
 //HERE YOU CAN SEE WHICH SERVO NUMBER REPRESENTS EACH THRUSTER
-byte servoPin1 = 3; // Right Front   - pink
+byte servoPin1 = 13; // Right Front   - pink
 byte servoPin2 = 4; // Right Top          - red
 byte servoPin3 = 6; // Right Back     - orange
 byte servoPin4 = 7; // Left Front          - yellow
