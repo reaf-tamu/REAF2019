@@ -130,7 +130,40 @@ void loop()
 //CHANGE THE CODE FOR EACH MOTION FUNCTION HERE; THE 'SIGNAL' REFERS TO THE VALUE YOU SET TOWARDS THE TOP
 //YOU CAN CHANGE THAT VALUE TO EFFECT ALL OF THEM, OR SIMPLY PUT THE NUMBER VALUE IN PARANTHESIS TO CHANGE AN INDIVIDUAL VALUE IF NECESSARY
 
- 
+void thruster1()
+{
+  servo1.writeMicroseconds(2000);
+}
+void thruster2()
+{
+  servo2.writeMicroseconds(2000);
+}
+void thruster3()
+{
+  servo3.writeMicroseconds(2000);
+}
+void thruster4()
+{
+  servo4.writeMicroseconds(2000);
+}
+void thruster5()
+{
+  servo5.writeMicroseconds(2000);
+}
+void thruster6()
+{
+  servo6.writeMicroseconds(2000);
+}
+void thruster7()
+{
+  servo7.writeMicroseconds(2000);
+}
+void thruster8()
+{
+  servo8.writeMicroseconds(2000);
+}
+
+
 void each()
 {
     servo1.writeMicroseconds(signal); // Send signal to ESC.
