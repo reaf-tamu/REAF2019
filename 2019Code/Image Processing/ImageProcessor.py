@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
 
-video_file = "GOPR4571.MP4"
-video = cv2.VideoCapture(video_file)
+video = cv2.VideoCapture(0)
 
 while True:
     (grabbed, frame) = video.read()
