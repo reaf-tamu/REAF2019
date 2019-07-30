@@ -416,4 +416,3 @@ void each()
     servo8.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
     
-}
