@@ -7,12 +7,9 @@ cap = cv2.VideoCapture(0)
 
 while True:
 	
-	ret, frame = cap.read()
-	
+	ret, frame = cap.read()	
 	edges = cv2.Canny(frame, 100, 200)
-	
 	cv2.imshow('Edges', edges)
-	cv2.imwrite("frame%d.jpg"%0,frame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
 # When everything done, release the capture
