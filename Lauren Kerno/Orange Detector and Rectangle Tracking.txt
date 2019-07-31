@@ -1,0 +1,58 @@
+import cv2
+import numpy as np
+
+cap = cv2.VideoCapture(0)
+while(1):
+    # Take each frame
+    _, frame = cap.read()
+
+    # Convert BGR to HSV
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # define range of blue color in HSV
+    lower_orange = np.array([5,150,150])
+    upper_orange = np.array([15,255,255])
+
+    # Threshold the HSV image to get only orange colors
+    mask = cv2.inRange(hsv, lower_orange, upper_orange)
+
+
+#ADDITION
+    font = cv2.FONT_HERSHEY_COMPLEX
+    kernel = np.ones((5, 5), np.uint8)
+    mask = cv2.erode(mask, kernel)
+    contours, hierarchy= cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    for cnt in contours:
+        
+        area = cv2.contourArea(cnt)
+
+        approx = cv2.approxPolyDP(cnt, 0.02*cv2.arcLength(cnt, True), True)
+
+        x = approx.ravel()[0]
+
+        y = approx.ravel()[1]
+
+
+        if area > 400:
+
+            cv2.drawContours(frame, [approx], 0, (255, 255, 255), 2)
+
+
+            if len(approx) == 4:
+
+                cv2.putText(frame, "Rectangle", (x, y), font, 1, (255, 255, 255))
+
+
+
+#END ADDITION
+
+    # Bitwise-AND mask and original image
+    res = cv2.bitwise_and(frame,frame, mask= mask)
+    cv2.imshow('frame',frame)
+    #cv2.imshow('mask',mask)
+    #cv2.imshow('res',res)
+
+    k = cv2.waitKey(5) & 0xFF
+    if k == 27:
+        break
+cv2.destroyAllWindows()
