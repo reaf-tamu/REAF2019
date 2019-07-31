@@ -12,14 +12,14 @@
 //IF THE AUV NEEDS TO BE STOPPED IMMEDIATLY, RUN THE STOP SKETCH IN THE STOP FOLDER OR HIT THE KILL SWITCH
 
 //HERE YOU CAN SEE WHICH SERVO NUMBER REPRESENTS EACH THRUSTER
-byte servoPin1 = 13; // Right Front   - pink
-byte servoPin2 = 12; // Right Top          - red
-byte servoPin3 = 11; // Right Back     - orange
-byte servoPin4 = 10; // Left Front          - yellow
-byte servoPin5 = 9; // Right Bottom              - green
-byte servoPin6 = 7; // Left Bottom       - purple
-byte servoPin7 = 6; // Left Back              - blue
-byte servoPin8 = 5; // Left Top        - white
+byte servoPin1 = 13; // Left Front-black - A1
+byte servoPin2 = 12; // Left Top-white
+byte servoPin3 = 11; // Left Bottom - red
+byte servoPin4 = 10; // Left Front - orange- A4
+byte servoPin5 = 8; // Right Bottom- yellow - M1
+byte servoPin6 = 7; // Left Bottom- green
+byte servoPin7 = 6; // Left Back - blue
+byte servoPin8 = 5; // Left Top - purple - M4
 
 int MissionSwitch = 34;
 int Mission = 0; 
@@ -29,26 +29,26 @@ int signal = 1650; // Set signal value, which should be between 1100 and 1900
 int stop = 1500; // Stop thruster //1500-1900 positive 1100-1499 negative
 
 
-Servo servo1; 
-Servo servo2;
-Servo servo3;
-Servo servo4;
-Servo servo5;
-Servo servo6;
-Servo servo7;
-Servo servo8;
+Servo A1; 
+Servo A2;
+Servo A3;
+Servo A4;
+Servo M1;
+Servo M2;
+Servo M3;
+Servo M4;
 
 void setup() 
 {
   
-  servo1.attach(servoPin1); 
-  servo2.attach(servoPin2); 
-  servo3.attach(servoPin3); 
-  servo4.attach(servoPin4); 
-  servo5.attach(servoPin5); 
-  servo6.attach(servoPin6); 
-  servo7.attach(servoPin7); 
-  servo8.attach(servoPin8); 
+  A1.attach(servoPin1); 
+  A2.attach(servoPin2); 
+  A3.attach(servoPin3); 
+  A4.attach(servoPin4); 
+  M1.attach(servoPin5); 
+  M2.attach(servoPin6); 
+  M3.attach(servoPin7); 
+  M4.attach(servoPin8); 
 
   //stop them all
   servo1.writeMicroseconds(1500); // send "stop" signal to ESC.
@@ -64,7 +64,7 @@ void setup()
   
   delay(1000); // delay to allow the ESC to recognize the stopped signal
   Serial.begin(9600);
-  Serial.println("Directions (d=Down,h=hover,f=Forward,l=Left,s=slightleft,r=Right,t=slightright,u=Up,b=Backward,p=dice,g=straight)");
+  Serial.println("Directions (d=Down,h=hover,f=Forward,l=Left,s=slightleft,r=Right,t=slightright,u=Up,b=Backward)");
   
 
 }
@@ -186,102 +186,101 @@ void dice()
 void down()
 {
 
-    servo8.writeMicroseconds(1400); // Send signal to ESC.
-    servo1.writeMicroseconds(1600); // Send signal to ESC.
-    servo4.writeMicroseconds(1400); // Send signal to ESC.
-    servo7.writeMicroseconds(1600); // Send signal to ESC.
+    M4.writeMicroseconds(1400); // Send signal to ESC.
+    A1.writeMicroseconds(1600); // Send signal to ESC.
+    A4.writeMicroseconds(1400); // Send signal to ESC.
+    M3.writeMicroseconds(1600); // Send signal to ESC.
     
     delay(3000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-//
-//
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
 //
     delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }
 void hover()
 {
-    servo8.writeMicroseconds(1625); // Send signal to ESC.
-    servo1.writeMicroseconds(1675); // Send signal to ESC.
-    servo4.writeMicroseconds(1375); // Send signal to ESC.
-    servo7.writeMicroseconds(1625); // Send signal to ESC.
+    M4.writeMicroseconds(1625); // Send signal to ESC.
+    A1.writeMicroseconds(1675); // Send signal to ESC.
+    A4.writeMicroseconds(1375); // Send signal to ESC.
+    M3.writeMicroseconds(1625); // Send signal to ESC.
     
     delay(100); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
 
     delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }
 void up()
 {
-    servo8.writeMicroseconds(1675); // Send signal to ESC.
-    servo1.writeMicroseconds(1325); // Send signal to ESC.
-    servo4.writeMicroseconds(1675); // Send signal to ESC.
-    servo7.writeMicroseconds(1325); // Send signal to ESC.
+    M4.writeMicroseconds(1675); // Send signal to ESC.
+    A1.writeMicroseconds(1325); // Send signal to ESC.
+    A4.writeMicroseconds(1675); // Send signal to ESC.
+    M3.writeMicroseconds(1325); // Send signal to ESC.
     
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 //
 //
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
+
 //
     delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }
 void backward()
 {
-    servo8.writeMicroseconds(1625); // Send signal to ESC.  HOVER DOWN
-    servo1.writeMicroseconds(1675); // Send signal to ESC.
-    servo4.writeMicroseconds(1375); // Send signal to ESC.
-    servo7.writeMicroseconds(1625); // Send signal to ESC.
+    M4.writeMicroseconds(1625); // Send signal to ESC.  HOVER DOWN
+    A1.writeMicroseconds(1675); // Send signal to ESC.
+    A4.writeMicroseconds(1375); // Send signal to ESC.
+    M3.writeMicroseconds(1625); // Send signal to ESC.
     
-    servo3.writeMicroseconds(1310); // Send signal to ESC.  MOVE BACK
-    servo6.writeMicroseconds(1325); // Send signal to ESC.
-    servo5.writeMicroseconds(1325); // Send signal to ESC.
-    servo2.writeMicroseconds(1310); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
     
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-    servo6.writeMicroseconds(stop); // Send signal to ESC.
-    servo5.writeMicroseconds(stop); // Send signal to ESC.
-    servo3.writeMicroseconds(stop); // Send signal to ESC.
-    servo2.writeMicroseconds(stop); // Send signal to ESC.
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M2.writeMicroseconds(stop); // Send signal to ESC.
+    M1.writeMicroseconds(stop); // Send signal to ESC.
+    A3.writeMicroseconds(stop); // Send signal to ESC.
+    A2.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
 
     delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND) 
 }
 
 void slightback()
 {
-    servo8.writeMicroseconds(1625); // Send signal to ESC.  HOVER DOWN
-    servo1.writeMicroseconds(1675); // Send signal to ESC.
-    servo4.writeMicroseconds(1375); // Send signal to ESC.
-    servo7.writeMicroseconds(1625); // Send signal to ESC.
+    M4.writeMicroseconds(1625); // Send signal to ESC.  HOVER DOWN
+    A1.writeMicroseconds(1675); // Send signal to ESC.
+    A4.writeMicroseconds(1375); // Send signal to ESC.
+    M3.writeMicroseconds(1625); // Send signal to ESC.
     
-    servo3.writeMicroseconds(1350); // Send signal to ESC.  MOVE BACK
-    servo6.writeMicroseconds(1365); // Send signal to ESC.
-    servo5.writeMicroseconds(1365); // Send signal to ESC.
-    servo2.writeMicroseconds(1350); // Send signal to ESC.
+    A3.writeMicroseconds(1350); // Send signal to ESC.  MOVE BACK
+    M2.writeMicroseconds(1365); // Send signal to ESC.
+    M1.writeMicroseconds(1365); // Send signal to ESC.
+    A2.writeMicroseconds(1350); // Send signal to ESC.
     
     delay(1000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-    servo6.writeMicroseconds(stop); // Send signal to ESC.
-    servo5.writeMicroseconds(stop); // Send signal to ESC.
-    servo3.writeMicroseconds(stop); // Send signal to ESC.
-    servo2.writeMicroseconds(stop); // Send signal to ESC.
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M2.writeMicroseconds(stop); // Send signal to ESC.
+    M1.writeMicroseconds(stop); // Send signal to ESC.
+    A3.writeMicroseconds(stop); // Send signal to ESC.
+    A2.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
 
     delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND) 
 }
@@ -289,41 +288,41 @@ void slightback()
 void forward()
 {
 
-    servo3.writeMicroseconds(1690); // Send signal to ESC.  MOVE FORWARD
-    servo6.writeMicroseconds(1675); // Send signal to ESC.
-    servo5.writeMicroseconds(1675); // Send signal to ESC.
-    servo2.writeMicroseconds(1690); // Send signal to ESC.
+    A3.writeMicroseconds(1690); // Send signal to ESC.  MOVE FORWARD
+    M2.writeMicroseconds(1675); // Send signal to ESC.
+    M1.writeMicroseconds(1675); // Send signal to ESC.
+    A2.writeMicroseconds(1690); // Send signal to ESC.
     
-    servo8.writeMicroseconds(1375); // Send signal to ESC.  HOVER DOWN
-    servo1.writeMicroseconds(1625); // Send signal to ESC.
-    servo4.writeMicroseconds(1375); // Send signal to ESC.
-    servo7.writeMicroseconds(1625); // Send signal to ESC.
+    M4.writeMicroseconds(1375); // Send signal to ESC.  HOVER DOWN
+    A1.writeMicroseconds(1625); // Send signal to ESC.
+    A4.writeMicroseconds(1375); // Send signal to ESC.
+    M3.writeMicroseconds(1625); // Send signal to ESC.
 
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-    servo6.writeMicroseconds(stop); // Send signal to ESC.
-    servo5.writeMicroseconds(stop); // Send signal to ESC.
-    servo3.writeMicroseconds(stop); // Send signal to ESC.
-    servo2.writeMicroseconds(stop); // Send signal to ESC.
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
-    servo7.writeMicroseconds(stop); // Send signal to ESC.  
+    M2.writeMicroseconds(stop); // Send signal to ESC.
+    M1.writeMicroseconds(stop); // Send signal to ESC.
+    A3.writeMicroseconds(stop); // Send signal to ESC.
+    A2.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
+    M3.writeMicroseconds(stop); // Send signal to ESC.
 
 }
 void straight()
 {
-    servo3.writeMicroseconds(1690); // Send signal to ESC.  MOVE FORWARD
-    servo6.writeMicroseconds(1675); // Send signal to ESC.
-    servo5.writeMicroseconds(1675); // Send signal to ESC.
-    servo2.writeMicroseconds(1690); // Send signal to ESC.
+    A3.writeMicroseconds(1690); // Send signal to ESC.  MOVE FORWARD
+    M2.writeMicroseconds(1675); // Send signal to ESC.
+    M1.writeMicroseconds(1675); // Send signal to ESC.
+    A2.writeMicroseconds(1690); // Send signal to ESC.
 
     delay(2000);
 
-    servo6.writeMicroseconds(stop); // Send signal to ESC.
-    servo5.writeMicroseconds(stop); // Send signal to ESC.
-    servo3.writeMicroseconds(stop); // Send signal to ESC.
-    servo2.writeMicroseconds(stop); // Send signal to ESC.
+    M2.writeMicroseconds(stop); // Send signal to ESC.
+    M1.writeMicroseconds(stop); // Send signal to ESC.
+    A3.writeMicroseconds(stop); // Send signal to ESC.
+    A2.writeMicroseconds(stop); // Send signal to ESC.
 
     delay(100);
     
@@ -331,87 +330,87 @@ void straight()
 void left()
 {
 
-  servo3.writeMicroseconds(signal);
-  servo2.writeMicroseconds(signal);
+  A3.writeMicroseconds(signal);
+  A2.writeMicroseconds(signal);
 
   delay(3000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-  servo3.writeMicroseconds(stop);
-  servo2.writeMicroseconds(stop);
+  A3.writeMicroseconds(stop);
+  A2.writeMicroseconds(stop);
 
   delay(10000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }  
 void slightleft()
 {
 
-  servo3.writeMicroseconds(1650);
-  servo2.writeMicroseconds(1650);
+  A3.writeMicroseconds(1650);
+  A2.writeMicroseconds(1650);
 
   delay(1000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-  servo3.writeMicroseconds(stop);
-  servo2.writeMicroseconds(stop);
+  A3.writeMicroseconds(stop);
+  A2.writeMicroseconds(stop);
 
   delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }  
 void right()
 {
 
-  servo5.writeMicroseconds(1650);
-  servo6.writeMicroseconds(1650);
+  M1.writeMicroseconds(1650);
+  M2.writeMicroseconds(1650);
 
   delay(3000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
   
-  servo5.writeMicroseconds(stop);
-  servo6.writeMicroseconds(stop);  
+  M1.writeMicroseconds(stop);
+  M2.writeMicroseconds(stop);  
 
   delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }  
 void slightright()
 {
 
-  servo5.writeMicroseconds(1650);
-  servo6.writeMicroseconds(1650);
+  M1.writeMicroseconds(1650);
+  M2.writeMicroseconds(1650);
 
   delay(1000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
   
-  servo5.writeMicroseconds(stop);
-  servo6.writeMicroseconds(stop);  
+  M1.writeMicroseconds(stop);
+  M2.writeMicroseconds(stop);  
 
   delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }  
 void each()
 {
-    servo1.writeMicroseconds(signal); // Send signal to ESC.
+    A1.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo1.writeMicroseconds(stop); // Send signal to ESC.
+    A1.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo2.writeMicroseconds(signal); // Send signal to ESC.
+    A2.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo2.writeMicroseconds(stop); // Send signal to ESC.
+    A2.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo3.writeMicroseconds(signal); // Send signal to ESC.
+    A3.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo3.writeMicroseconds(stop); // Send signal to ESC.
+    A3.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo4.writeMicroseconds(signal); // Send signal to ESC.
+    A4.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo4.writeMicroseconds(stop); // Send signal to ESC.
+    A4.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo5.writeMicroseconds(signal); // Send signal to ESC.
+    A5.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo5.writeMicroseconds(stop); // Send signal to ESC.
+    A5.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo6.writeMicroseconds(signal); // Send signal to ESC.
+    M1.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo6.writeMicroseconds(stop); // Send signal to ESC.
+    M2.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo7.writeMicroseconds(signal); // Send signal to ESC.
+    M3.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo7.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo8.writeMicroseconds(signal); // Send signal to ESC.
+    M4.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    servo8.writeMicroseconds(stop); // Send signal to ESC.
+    M4.writeMicroseconds(stop); // Send signal to ESC.
     delay(5000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
     
