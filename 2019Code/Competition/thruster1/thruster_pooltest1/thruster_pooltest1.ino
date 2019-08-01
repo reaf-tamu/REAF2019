@@ -244,16 +244,16 @@ void forward()
     m1.writeMicroseconds(stop); // Send signal to ESC.
     m4.writeMicroseconds(stop); // Send signal to ESC.
 
-    a3.writeMicroseconds(1640); // Send signal to ESC.  MOVE FORWARD
-    a2.writeMicroseconds(1390); // Send signal to ESC.
-    m2.writeMicroseconds(1625); // Send signal to ESC.
-    m3.writeMicroseconds(1375); // Send signal to ESC.
+    a3.writeMicroseconds(1650); // Send signal to ESC.  MOVE FORWARD
+    a2.writeMicroseconds(1380); // Send signal to ESC.
+    m2.writeMicroseconds(1650); // Send signal to ESC.
+    m3.writeMicroseconds(1365); // Send signal to ESC.
     //hover
     m1.writeMicroseconds(1600);
     m4.writeMicroseconds(1400);
     a1.writeMicroseconds(1600);
     a4.writeMicroseconds(1600);
-    delay(9000);
+    delay(15000);
     
     m2.writeMicroseconds(stop); // Send signal to ESC.
     m3.writeMicroseconds(stop); // Send signal to ESC.
@@ -280,7 +280,6 @@ void straight()
     a3.writeMicroseconds(stop); // Send signal to ESC.
     a2.writeMicroseconds(stop); // Send signal to ESC.
 
-    delay(1000);
     
 }
 void left()
@@ -294,7 +293,6 @@ void left()
   a3.writeMicroseconds(stop);
   a2.writeMicroseconds(stop);
 
-  delay(3000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }  
 void slightleft()
 {
@@ -321,16 +319,19 @@ void slightleft()
 }  
 void right()
 {
-
-  m1.writeMicroseconds(1650);
-  m2.writeMicroseconds(1650);
-
-  delay(3000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-  
-  m1.writeMicroseconds(stop);
-  m2.writeMicroseconds(stop);  
-
-  delay(3000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+   
+    a3.writeMicroseconds(1665); // Send signal to ESC.  MOVE FORWARD
+    a2.writeMicroseconds(1365); // Send signal to ESC.
+    m2.writeMicroseconds(1625); // Send signal to ESC.
+    m3.writeMicroseconds(1375); // Send signal to ESC.
+    //hover
+    m1.writeMicroseconds(1600);
+    m4.writeMicroseconds(1400);
+    a1.writeMicroseconds(1600);
+    a4.writeMicroseconds(1600);
+    delay(5000);
+    
+    
 }  
 void slightright()
 {
