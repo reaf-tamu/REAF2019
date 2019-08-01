@@ -114,17 +114,17 @@ void loop() {
 ////////////// Main Functions /////////////////////
 void forward()//Hovering in plane while moving forward-
 {
-    a2.writeMicroseconds(1550); // Send signal to ESC.  MOVE FORWARD
-    m2.writeMicroseconds(1550); // Send signal to ESC.  Top move forward
-    m3.writeMicroseconds(1550); // Send signal to ESC.  then bottom
-    a3.writeMicroseconds(1550); // Send signal to ESC.
+    a2.writeMicroseconds(1650); // Send signal to ESC.  MOVE FORWARD
+    m2.writeMicroseconds(1650); // Send signal to ESC.  Top move forward
+    m3.writeMicroseconds(1650); // Send signal to ESC.  then bottom
+    a3.writeMicroseconds(1650); // Send signal to ESC.
     
     a1.writeMicroseconds(1450); // Send signal to ESC.  HOVER DOWN
     m1.writeMicroseconds(1450); // Send signal to ESC.  from moves down
     a4.writeMicroseconds(1450); // Send signal to ESC.  then back
     m4.writeMicroseconds(1450); // Send signal to ESC.
 
-    //delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+    delay(5000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
     a2.writeMicroseconds(stop); // Send signal to ESC.
     m2.writeMicroseconds(stop); // Send signal to ESC.
