@@ -177,10 +177,10 @@ void forward()//Hovering in plane while moving forward-
 
 void down()
 {
-  a1.writeMicroseconds(1350); // Send signal to ESC.
-  a4.writeMicroseconds(1350); // Send signal to ESC.
-  m1.writeMicroseconds(1350); // Send signal to ESC.
-  m4.writeMicroseconds(1350); // Send signal to ESC.
+  a1.writeMicroseconds(1650); // Send signal to ESC.
+  a4.writeMicroseconds(1650); // Send signal to ESC.
+  m1.writeMicroseconds(1650); // Send signal to ESC.
+  m4.writeMicroseconds(1650); // Send signal to ESC.
   delay(5000);
   a1.writeMicroseconds(stop); // Send signal to ESC.
   a4.writeMicroseconds(stop); // Send signal to ESC.
@@ -190,10 +190,10 @@ void down()
 
 void up()
 {
-  a1.writeMicroseconds(1650); // Send signal to ESC.
-  a4.writeMicroseconds(1650); // Send signal to ESC.
-  m1.writeMicroseconds(1650); // Send signal to ESC.
-  m4.writeMicroseconds(1650); // Send signal to ESC.
+  a1.writeMicroseconds(1350); // Send signal to ESC.
+  a4.writeMicroseconds(1350); // Send signal to ESC.
+  m1.writeMicroseconds(1350); // Send signal to ESC.
+  m4.writeMicroseconds(1350); // Send signal to ESC.
   delay(5000);
 }
 
