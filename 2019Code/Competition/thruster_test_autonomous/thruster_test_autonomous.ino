@@ -16,10 +16,10 @@
 
 //dealy(1000); ==> THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
-byte servoPin1 = 10; // Left Front   - black   - a1
+byte servoPin1 = 13; // Left Front   - black   - a1
 byte servoPin2 = 12; // Left Top     - white   - a2
 byte servoPin3 = 11; // Left Bottom  - red     - a3
-byte servoPin4 = 13; // Left Back   - orange  - a4
+byte servoPin4 = 10; // Left Back   - orange  - a4
 byte servoPin5 = 5;  // Right Bottom - yellow  - m1
 byte servoPin6 = 7;  // Right Bottom - green   - m2
 byte servoPin7 = 6;  // Right Back   - blue    - m3
@@ -80,56 +80,33 @@ void loop() {
   char dir;//='t' //direction
   if (Mission== LOW)
   {
-    dir= Serial.read();
-    switch(dir){
-      case 'd':
-        down();
-        Serial.println("down");
-        break;  
-      case 'f':
         forward();
         Serial.println("forward");
-        break;
-      case 'l':
+        delay(4000);
         left();
         Serial.println("left");
-        break;
-      case 'r':
+        delay(4000);
         right();
         Serial.println("right");
-        break;
-      case 'u':
-        up();
-        Serial.println("up");
-        break;
-      case 's':
-        slightLeft();
-        Serial.println("slight left");
-        break;
-      case 't':
-        slightRight();
-        Serial.println("slight right");
-        break;
-      case 'b':
+        delay(4000);
         backwards();
         Serial.println("backwards");
-        break;
-      case 'g':
-        straight();
-        Serial.println("straight");
-        break;
-      case 'e':
-        Serial.println("EACH");
-        each();
-        break;
-       case 'x':
-        Serial.println("STOP!!");
-        stopAll();
-        break;
-      default:
-        //hover();
-        break;
-    }
+        delay(4000);
+        up();
+        Serial.println("up");
+        delay(4000);
+        down();
+        Serial.println("down");
+        delay(4000);
+        slightLeft();
+        Serial.println("slight left");
+        delay(4000);
+        slightRight();
+        Serial.println("slight right");
+        delay(4000);
+        
+       
+    
 }
 }
 
@@ -278,7 +255,7 @@ void straight()
 }
 void each()
 {
-    Serial.println("EACLoop running");
+    Serial.println("EACH() Loop running");
     Serial.println("a1");
     a1.writeMicroseconds(signal); // Send signal to ESC.
     delay(1500); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
@@ -318,7 +295,7 @@ void each()
     Serial.println("m3");
     m3.writeMicroseconds(signal); // Send signal to ESC.
     delay(1500); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-    m3.writeMicroseconds(stop); // Send signal to ESC.
+    m3.writeMicroseconds(signal); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 
     Serial.println("m4");
@@ -327,15 +304,4 @@ void each()
     m4.writeMicroseconds(stop); // Send signal to ESC.
     delay(2000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
     Serial.println("DONE WITH each()");
-}
-void stopAll(){
-  a1.writeMicroseconds(stop); 
-  a2.writeMicroseconds(stop);
-  a3.writeMicroseconds(stop);
-  a4.writeMicroseconds(stop);
-  m1.writeMicroseconds(stop);
-  m2.writeMicroseconds(stop);
-  m3.writeMicroseconds(stop);
-  m4.writeMicroseconds(stop);
-  
-}
+}        
