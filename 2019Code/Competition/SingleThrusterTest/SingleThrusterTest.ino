@@ -1,6 +1,9 @@
 #include <Servo.h>
 #include <SoftwareSerial.h>
 
+//NOTE: Works for single thrusters test = all pins aligned properly
+
+
 //TO COMPILE THE SKETCH AND CHECK FOR ERRORS, CLICK THE CHECK MARK ABOVE
 //TO RUN THE SKETCH, CLICK THE RIGHT POINTING ARROW BUTTON ABOVE TO UPLOAD THE CODE TO THE NUC
 //WHEN IT SAYS UPLOAD COMPLETE AT THE BOTTOM OF THE SCREEN, TURN ON THE THRUSTERS AND CLICK THE CHECK BUTTON TO RUN IT
@@ -129,7 +132,7 @@ void loop() {
 //FUNCTIONS---------------
 void a1_test()
 {
-  a1.writeMicroseconds(1900); // Send signal to ESC.
+  a1.writeMicroseconds(1550); // Send signal to ESC.
   delay(3000);
   a1.writeMicroseconds(stop);
 }
@@ -153,25 +156,25 @@ void a4_test()
 }
 void m1_test()
 {
-  m1.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  m1.writeMicroseconds(1700); // Send signal to ESC.
+  delay(3000);
   m1.writeMicroseconds(stop);
 }
 void m2_test()
 {
-  m2.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  m2.writeMicroseconds(1750); // Send signal to ESC.
+  delay(3000);
   m2.writeMicroseconds(stop);
 }
 void m3_test()
 {
-  m3.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  m3.writeMicroseconds(1750); // Send signal to ESC.
+  delay(3000);
   m3.writeMicroseconds(stop);
 }
 void m4_test()
 {
-  m4.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  m4.writeMicroseconds(1750); // Send signal to ESC.
+  delay(3000);
   m4.writeMicroseconds(stop);
 }
