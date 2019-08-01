@@ -77,6 +77,7 @@ void loop() {
   char dir; //direction
   if (Mission== LOW)
   {
+    //Serial.print("MISSION ON");
 
     //CHOOSE WHICH MOTIONS YOU WANT TO RUN HERE, COMMENT OUT THE ONES YOU DON'T WANT TO USE BY PLACING // IN FRONT OF IT
     //THE ACTUAL CODE FOR EACH FUNCTION IS FURTHER DOWN
@@ -128,20 +129,20 @@ void loop() {
 //FUNCTIONS---------------
 void a1_test()
 {
-  a1.writeMicroseconds(1650); // Send signal to ESC.
-  delay(1000);
+  a1.writeMicroseconds(1900); // Send signal to ESC.
+  delay(3000);
   a1.writeMicroseconds(stop);
 }
 void a2_test()
 {
   a2.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  delay(3000);
   a2.writeMicroseconds(stop);
 }
 void a3_test()
 {
   a3.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
+  delay(3000);
   a3.writeMicroseconds(stop);
 }
 void a4_test()
