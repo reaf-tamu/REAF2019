@@ -82,30 +82,15 @@ void loop() {
       case 'd':
         down();
         Serial.println("down");
-        break;
-      case 'h':
-        hover();
-        Serial.println("hover");
         break;  
       case 'f':
         forward();
         Serial.println("forward");
         break;
-      case 'v':
-        //slighback();
-        break;  
       case 'l':
         left();
         Serial.println("left");
         break;
-      case 's':
-        slightleft();
-        Serial.println("slight left");
-        break; 
-      case 't':
-        slightright();
-        Serial.println("slight right");
-        break; 
       case 'r':
         right();
         Serial.println("right");
@@ -114,63 +99,13 @@ void loop() {
         up();
         Serial.println("up");
         break;
-      case 'b':
-        backward();
-        Serial.println("backward");
-        break;
-      case 'e':
-        each();
-        Serial.println("each");
-        break;
-      case 'g':
-        straight();
-        Serial.println("straight");
-        break;
-      default:
+      //default:
         //hover();
-        break;
+        //break;
 }
 }
-void a1_test()
-{
-  a1.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
 }
-void a2_test()
-{
-  a2.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void a3_test()
-{
-  a3.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void a4_test()
-{
-  a4.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void m1_test()
-{
-  m1.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void m2_test()
-{
-  m2.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void m3_test()
-{
-  m3.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
-void m4_test()
-{
-  m4.writeMicroseconds(1550); // Send signal to ESC.
-  delay(1000);
-}
+
 ////////////// Main Functions /////////////////////
 void forward()//Hovering in plane while moving forward
 {
