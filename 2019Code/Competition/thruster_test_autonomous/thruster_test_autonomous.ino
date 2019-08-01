@@ -124,6 +124,11 @@ void loop() {
         down();
         Serial.println("down");
         delay(4000);
+
+        hover();
+        Serial.println("hover");
+        delay(4000);
+        
 //        slightLeft();
 //        Serial.println("slight left");
 //        delay(4000);
@@ -138,6 +143,14 @@ void loop() {
 
 
 ////////////// Main Functions /////////////////////
+void hover()
+{
+  m4.writeMicroseconds(1650);
+  m1.writeMicroseconds(1350);
+  a1.writeMicroseconds(1650);
+  a4.writeMicroseconds(1350);
+}
+
 void forward()//Hovering in plane while moving forward-
 {
     a2.writeMicroseconds(1650); // Send signal to ESC.  MOVE FORWARD
@@ -200,7 +213,6 @@ void right()//Runs the thrusters on the left faster than those on the right to c
 
   //delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
 }
-
   void left()//Runs the thrusters on the right faster than those on the left to curve left,
 {
   m2.writeMicroseconds(1750);
