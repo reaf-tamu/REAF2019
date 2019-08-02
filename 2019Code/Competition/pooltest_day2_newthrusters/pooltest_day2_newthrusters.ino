@@ -43,7 +43,7 @@ void setup()
 {
   
   //flush(MissionSwitch);
-  
+  //std::list::clear();
   a1.attach(servoPin1); 
   a2.attach(servoPin2); 
   a3.attach(servoPin3); 
@@ -125,7 +125,7 @@ void loop()
         Serial.println("straight");
         break;
       default:
-        hover();
+        //hover();
         break;  
    }
    
@@ -157,7 +157,7 @@ void down()
    a1.writeMicroseconds(stop+125);
    a4.writeMicroseconds(stop+125);
    
-   delay(1500); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+   delay(3000); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
    a1.writeMicroseconds(stop); // Send signal to ESC.
    a4.writeMicroseconds(stop); // Send sign
    m1.writeMicroseconds(stop); // Send signal to ESC.
@@ -169,7 +169,7 @@ void forward()
 {   
     //KEEPING DOWN - DO NOT CHANGE!!!
     m1.writeMicroseconds(stop+125);
-    m4.writeMicroseconds(stop-125);
+    m4.writeMicroseconds(stop-135);
     a1.writeMicroseconds(stop+125);
     a4.writeMicroseconds(stop+125);
     delay(1500); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
@@ -198,7 +198,7 @@ void forward()
 
 void hover()
 {
-  m4.writeMicroseconds(stop+150);  //down
+  m4.writeMicroseconds(stop-150);  //down
   m1.writeMicroseconds(stop-150); //up
   a1.writeMicroseconds(stop+150); //down
   a4.writeMicroseconds(stop-150); //up
