@@ -80,78 +80,68 @@ void loop()
      // Serial.println("MISSION ON");
     //CHOOSE WHICH MOTIONS YOU WANT TO RUN HERE, COMMENT OUT THE ONES YOU DON'T WANT TO USE BY PLACING // IN FRONT OF IT
     //THE ACTUAL CODE FOR EACH FUNCTION IS FURTHER DOWN
-//    float sensorValue = analogRead(A0);
-//    float pressure = sensorValue/15.0;
-//    dir= Serial.read();
-//    switch(dir){
-//      case 'd':
-//        down();
-//        Serial.println("down");
-//        break;
-//      case 'h':
-//        hover();
-//        Serial.println("hover");
-//        break;  
-//      case 'f':
-//        forward();
-//        Serial.println("forward");
-//        break;
-//      case 'v':
-//        //slighback();
-//        break;  
-//      case 'l':
-//        left();
-//        Serial.println("left");
-//        break;
-//      case 's':
-//        slightleft();
-//        Serial.println("slight left");
-//        break; 
-//      case 't':
-//        slightright();
-//        Serial.println("slight right");
-//        break; 
-//      case 'r':
-//        right();
-//        Serial.println("right");
-//        break;
-//      case 'u':
-//        up();
-//        Serial.println("up");
-//        break;
-//      case 'b':
-//        backward();
-//        Serial.println("backward");
-//        break;
-//      case 'e':
-//        each();
-//        Serial.println("each");
-//        break;
-//      case 'm':
-//        Serial.print("Value: ");
-//        Serial.println(pressure);
-//        break;
-//      case 'p':
-//        Serial.println("dice");
-//        break;
-//      case 'g':
-//        straight();
-//        Serial.println("straight");
-//        break;
-//      default:
-//        //hover();
-//        break;  
-//   }
-
-    forward();
-    forward();
-    down();
-    slightright();
-    forward();
-    right();
-    forward();
-    forward();
-    forward();
+    float sensorValue = analogRead(A0);
+    float pressure = sensorValue/15.0;
+    dir= Serial.read();
+    switch(dir){
+      case 'd':
+        down();
+        Serial.println("down");
+        break;
+      case 'h':
+        hover();
+        Serial.println("hover");
+        break;  
+      case 'f':
+        forward();
+        Serial.println("forward");
+        break;
+      case 'v':
+        //slighback();
+        break;  
+      case 'l':
+        left();
+        Serial.println("left");
+        break;
+      case 's':
+        slightleft();
+        Serial.println("slight left");
+        break; 
+      case 't':
+        slightright();
+        Serial.println("slight right");
+        break; 
+      case 'r':
+        right();
+        Serial.println("right");
+        break;
+      case 'u':
+        up();
+        Serial.println("up");
+        break;
+      case 'b':
+        backward();
+        Serial.println("backward");
+        break;
+      case 'e':
+        each();
+        Serial.println("each");
+        break;
+      case 'm':
+        Serial.print("Value: ");
+        Serial.println(pressure);
+        break;
+      case 'p':
+        Serial.println("dice");
+        break;
+      case 'g':
+        straight();
+        Serial.println("straight");
+        break;
+      default:
+        //hover();
+        break;  
+   }
 
   }
  
@@ -168,7 +158,7 @@ void down()
    a1.writeMicroseconds(1625);
    a4.writeMicroseconds(1625);
 //
-    delay(700); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+    delay(1500); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
     a1.writeMicroseconds(stop); // Send signal to ESC.
     a4.writeMicroseconds(stop); // Send sign
     m1.writeMicroseconds(stop); // Send signal to ESC.
@@ -240,7 +230,6 @@ void slightback()
 
 void forward()
 {
-    
     //KEEPING DOWN
     m1.writeMicroseconds(1625);
     m4.writeMicroseconds(1375);
@@ -256,26 +245,17 @@ void forward()
     m1.writeMicroseconds(stop); // Send signal to ESC.
     m4.writeMicroseconds(stop); // Send signal to ESC.
 
-    a3.writeMicroseconds(1670); // Send signal to ESC.  MOVE FORWARD
-    a2.writeMicroseconds(1360); // Send signal to ESC.
-    m2.writeMicroseconds(1670); // Send signal to ESC.
-    m3.writeMicroseconds(1360); // Send signal to ESC.
+    a3.writeMicroseconds(1650); // Send signal to ESC.  MOVE FORWARD
+    a2.writeMicroseconds(1380); // Send signal to ESC.
+    m2.writeMicroseconds(1650); // Send signal to ESC.
+    m3.writeMicroseconds(1365); // Send signal to ESC.
     //hover
-    m1.writeMicroseconds(1550);
+    m1.writeMicroseconds(1600);
     m4.writeMicroseconds(1400);
     a1.writeMicroseconds(1600);
     a4.writeMicroseconds(1600);
-    delay(9000);
+    delay(15000);
     
-    m2.writeMicroseconds(stop); // Send signal to ESC.
-    m3.writeMicroseconds(stop); // Send signal to ESC.
-    a3.writeMicroseconds(stop); // Send signal to ESC.
-    a2.writeMicroseconds(stop); // Send signal to ESC.
-    a1.writeMicroseconds(stop); // Send signal to ESC.
-    a4.writeMicroseconds(stop); // Send sign
-    m1.writeMicroseconds(stop); // Send signal to ESC.
-    m4.writeMicroseconds(stop); // Send signal to ESC.
-    Serial.println("done forward");
 
 }
 void straight()
@@ -288,26 +268,18 @@ void straight()
 
     delay(9000);
 
-    m2.writeMicroseconds(stop); // Send signal to ESC.
-    m3.writeMicroseconds(stop); // Send signal to ESC.
-    a3.writeMicroseconds(stop); // Send signal to ESC.
-    a2.writeMicroseconds(stop); // Send signal to ESC.
-
     
 }
 void left()
 {
-    a3.writeMicroseconds(1650); // Send signal to ESC.  MOVE FORWARD
-    a2.writeMicroseconds(1380); // Send signal to ESC.
-    m2.writeMicroseconds(1665); // Send signal to ESC.
-    m3.writeMicroseconds(1350); // Send signal to ESC.
-    //hover
-    m1.writeMicroseconds(1600);
-    m4.writeMicroseconds(1400);
-    a1.writeMicroseconds(1600);
-    a4.writeMicroseconds(1600);
-    delay(15000);
-    
+
+  a3.writeMicroseconds(signal);
+  a2.writeMicroseconds(signal);
+
+  delay(3000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+
+  a3.writeMicroseconds(stop);
+  a2.writeMicroseconds(stop);
 
 }  
 void slightleft()
@@ -336,26 +308,16 @@ void slightleft()
 void right()
 {
    
-    a3.writeMicroseconds(1715); // Send signal to ESC.  MOVE FORWARD
-    a2.writeMicroseconds(1315); // Send signal to ESC.
-    m2.writeMicroseconds(1580); // Send signal to ESC.
-    m3.writeMicroseconds(1415); // Send signal to ESC.
+    a3.writeMicroseconds(1665); // Send signal to ESC.  MOVE FORWARD
+    a2.writeMicroseconds(1365); // Send signal to ESC.
+    m2.writeMicroseconds(1625); // Send signal to ESC.
+    m3.writeMicroseconds(1375); // Send signal to ESC.
     //hover
     m1.writeMicroseconds(1600);
     m4.writeMicroseconds(1400);
     a1.writeMicroseconds(1600);
     a4.writeMicroseconds(1600);
     delay(5000);
-
-    m1.writeMicroseconds(stop); // Send signal to ESC.
-    m4.writeMicroseconds(stop); // Send signal to ESC.
-    a3.writeMicroseconds(stop); // Send signal to ESC.
-    a2.writeMicroseconds(stop); // Send signal to ESC.
-    a1.writeMicroseconds(stop); // Send signal to ESC.
-    a4.writeMicroseconds(stop); // Send sign
-    m2
-    .writeMicroseconds(stop); // Send signal to ESC.
-    m3.writeMicroseconds(stop); // Send signal to ESC.    
     
     
 }  
