@@ -199,19 +199,25 @@ void up()
 
 void right()//Runs the thrusters on the left faster than those on the right to curve right,
 {
-  m2.writeMicroseconds(1650);
-  a2.writeMicroseconds(1750);
-  m3.writeMicroseconds(1650);
-  a3.writeMicroseconds(1750);
-  
-  delay(5000); //THIS IS HOW LONG THE THRUSTERS RUN IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
-  
-  m2.writeMicroseconds(stop);
-  a2.writeMicroseconds(stop);
-  m3.writeMicroseconds(stop);
-  a3.writeMicroseconds(stop);  
+  a3.writeMicroseconds(1715); // Send signal to ESC.  MOVE FORWARD
+    a2.writeMicroseconds(1315); // Send signal to ESC.
+    m2.writeMicroseconds(1580); // Send signal to ESC.
+    m3.writeMicroseconds(1415); // Send signal to ESC.
+    //hover
+    m1.writeMicroseconds(1600);
+    m4.writeMicroseconds(1400);
+    a1.writeMicroseconds(1600);
+    a4.writeMicroseconds(1600);
+    delay(5000);
 
-  //delay(100); //THIS IS HOW LONG THE THRUSTERS ARE STOPPED IN MILLISECONDS (1000 MILLISECONDS = 1 SECOND)
+    m1.writeMicroseconds(stop); // Send signal to ESC.
+    m4.writeMicroseconds(stop); // Send signal to ESC.
+    a3.writeMicroseconds(stop); // Send signal to ESC.
+    a2.writeMicroseconds(stop); // Send signal to ESC.
+    a1.writeMicroseconds(stop); // Send signal to ESC.
+    a4.writeMicroseconds(stop); // Send sign
+    m2.writeMicroseconds(stop); // Send signal to ESC.
+    m3.writeMicroseconds(stop); // Send signal to ESC. 
 }
   void left()//Runs the thrusters on the right faster than those on the left to curve left,
 {
