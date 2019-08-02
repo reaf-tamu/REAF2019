@@ -130,15 +130,15 @@ void loop()
    }
    
 
-    forward();
-    forward();
-    down();
-    slightright();
-    forward();
-    right();
-    forward();
-    forward();
-    forward();
+//    forward();
+//    forward();
+//    down();
+//    slightright();
+//    forward();
+//    right();
+//    forward();
+//    forward();
+//    forward();
 
   }
  
