@@ -75,9 +75,6 @@ void setup()
 
 void loop() 
 {
-
-  stopAll();
-  delay(1000);
    // Serial.println("l");
   Mission = digitalRead(MissionSwitch); // read Mission Switch input 
   char dir; //direction
@@ -132,43 +129,13 @@ void loop()
 //        break;  
 //   }
    
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    forward();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    forward();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    //slightleft();
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    forward();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    //right();
-    forward();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    
-    
+//    down();
+//    forward();
+//    forward();
+//    down();
+//    forward();
+forward();
+
   }
  
 
@@ -180,7 +147,7 @@ void loop()
 //YOU CAN CHANGE THAT VALUE TO EFFECT ALL OF THEM, OR SIMPLY PUT THE NUMBER VALUE IN PARANTHESIS TO CHANGE AN INDIVIDUAL VALUE IF NECESSARY
 void down()
 {
-  Serial.println("[DOWN] start");
+
    m1.writeMicroseconds(stop+195);
    m4.writeMicroseconds(stop-195);
    a1.writeMicroseconds(stop+195);
@@ -196,7 +163,6 @@ void down()
 }
 void forward()
 {   
-  Serial.println("[FORWAR] staert");
     //KEEPING DOWN - DO NOT CHANGE!!!
     m1.writeMicroseconds(stop+135);
     m4.writeMicroseconds(stop-145);
@@ -232,7 +198,6 @@ void forward()
 
 void hover()
 {
-  Serial.println("[HOVER] start");
   m4.writeMicroseconds(stop-150);  //down
   m1.writeMicroseconds(stop-150); //up
   a1.writeMicroseconds(stop+150); //down
@@ -249,7 +214,6 @@ void hover()
 }
 void up()
 {
-  Serial.println("[UP] start");
   a1.writeMicroseconds(stop-150); // Send signal to ESC.
   a4.writeMicroseconds(stop-150); // Send signal to ESC.
   m1.writeMicroseconds(stop-150); // Send signal to ESC.
@@ -417,16 +381,7 @@ void each()
 //    Serial.println("backward!!");
 //}
 
-void stopAll(){
-   a1.writeMicroseconds(stop); // Send signal to ESC.
-    a2.writeMicroseconds(stop); // Send signal to ESC.
-    a3.writeMicroseconds(stop); // Send signal to ESC.
-    a4.writeMicroseconds(stop); // Send signal to ESC. 
-     m1.writeMicroseconds(stop); // Send signal to ESC.
-    m2.writeMicroseconds(stop); // Send signal to ESC.
-    m4.writeMicroseconds(stop); // Send signal to ESC.
-    m3.writeMicroseconds(stop); // Send signal to ESC. 
-}
+
 //HOVER USED BEFORE
 //hover
 //    m1.writeMicroseconds(stop+100);
