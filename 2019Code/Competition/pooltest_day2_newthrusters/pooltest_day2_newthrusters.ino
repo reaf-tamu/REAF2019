@@ -132,41 +132,41 @@ void loop()
 //        break;  
 //   }
    
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    forward();
-    if(digitalRead(MissionSwitch))
-      return;
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
     down();
     if(digitalRead(MissionSwitch))
       return;
     forward();
     if(digitalRead(MissionSwitch))
       return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
-    //slightleft();
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
     forward();
     if(digitalRead(MissionSwitch))
       return;
-    down();
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
+//    //slightleft();
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
+    forward();
     if(digitalRead(MissionSwitch))
       return;
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
     //right();
     forward();
     if(digitalRead(MissionSwitch))
       return;
-    down();
-    if(digitalRead(MissionSwitch))
-      return;
+//    down();
+//    if(digitalRead(MissionSwitch))
+//      return;
     
     
   }
