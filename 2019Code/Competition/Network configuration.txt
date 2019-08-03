@@ -1,0 +1,9 @@
+IP Address of NUC = 
+192.168.15.10
+IP Address of Host = 
+192.168.15.20
+
+
+-----
+in command prompt check connection by:
+ping 192.168.15.10
