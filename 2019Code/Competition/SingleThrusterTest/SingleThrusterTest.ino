@@ -132,31 +132,31 @@ void loop() {
 //FUNCTIONS---------------
 void a1_test()
 {
-  a1.writeMicroseconds(1550); // Send signal to ESC.
+  a1.writeMicroseconds(1750); // Send signal to ESC.
   delay(3000);
   a1.writeMicroseconds(stop);
 }
 void a2_test()
 {
-  a2.writeMicroseconds(1550); // Send signal to ESC.
+  a2.writeMicroseconds(1750); // Send signal to ESC.
   delay(3000);
   a2.writeMicroseconds(stop);
 }
 void a3_test()
 {
-  a3.writeMicroseconds(1550); // Send signal to ESC.
+  a3.writeMicroseconds(1750); // Send signal to ESC.
   delay(3000);
   a3.writeMicroseconds(stop);
 }
 void a4_test()
 {
-  a4.writeMicroseconds(1550); // Send signal to ESC.
+  a4.writeMicroseconds(1750); // Send signal to ESC.
   delay(1000);
   a4.writeMicroseconds(stop);
 }
 void m1_test()
 {
-  m1.writeMicroseconds(1700); // Send signal to ESC.
+  m1.writeMicroseconds(1750); // Send signal to ESC.
   delay(3000);
   m1.writeMicroseconds(stop);
 }
